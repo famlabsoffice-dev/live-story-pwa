@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Live Story PWA",
-  description: "A live story telling PWA",
+  title: "Live Story | Every Life Matters",
+  description: "Digital life archive and memory reconstruction platform.",
+  applicationName: "Live Story",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -13,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body>{children}</body>
+      <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
 }
