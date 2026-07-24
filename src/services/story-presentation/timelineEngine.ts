@@ -1,9 +1,9 @@
-import type { StoryTimelineItem } from '@/domain/presentation/storyView';
+import type { TimelineEntry } from '@/domain/presentation/storyPresentation';
 
-export function buildTimeline(items: StoryTimelineItem[]): StoryTimelineItem[] {
-  return [...items].sort((a, b) => {
-    if (!a.year) return 1;
-    if (!b.year) return -1;
-    return a.year - b.year;
+export function buildTimeline(entries: TimelineEntry[]): TimelineEntry[] {
+  return [...entries].sort((a, b) => {
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
 }
