@@ -1,14 +1,16 @@
+/// <reference lib="webworker" />
+
 const CACHE_NAME = "live-story-shell-v1";
 const OFFLINE_URL = "/offline.html";
 
-self.addEventListener("install", (event) => {
+self.addEventListener("install", (event: ExtendableEvent) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.add(OFFLINE_URL))
   );
 });
 
-self.addEventListener("fetch", (event) => {
+self.addEventListener("fetch", (event: FetchEvent) => {
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(OFFLINE_URL))
+    fetch(event.request).catch(() => caches.match(OFFLINE_URL) as Promise<Response>)
   );
 });
