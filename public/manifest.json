@@ -1,11 +1,12 @@
 {
-  "name": "Live Story PWA",
-  "short_name": "LiveStory",
-  "description": "A live story telling PWA",
+  "name": "Live Story",
+  "short_name": "Live Story",
+  "description": "Every Life Matters - digitales Lebensarchiv",
   "start_url": "/",
   "display": "standalone",
+  "lang": "de",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
