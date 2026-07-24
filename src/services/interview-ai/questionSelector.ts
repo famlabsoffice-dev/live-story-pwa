@@ -1,9 +1,18 @@
 import type { InterviewContext } from "./contextAnalyzer";
 
-export function selectQuestions(context: InterviewContext): string[] {
-  if (context.missingAreas.length > 0) {
-    return context.missingAreas.map((area) => `Erzähle mehr über ${area}`);
-  }
+const questionMap: Record<string, string> = {
+  family: "Erzähle mehr über deine Familie.",
+  childhood: "Welche Erinnerung aus deiner Kindheit ist besonders wichtig?",
+  places: "Welche Orte haben dein Leben geprägt?",
+  work: "Welche Erfahrungen aus deinem Berufsleben möchtest du bewahren?",
+};
 
-  return ["Welche Erinnerung ist dir besonders wichtig?"];
+export function selectQuestions(context: InterviewContext): string[] {
+  const questions = context.missingAreas
+    .map((area) => questionMap[area])
+    .filter(Boolean);
+
+  return questions.length
+    ? questions.slice(0, 3)
+    : ["Welche Erinnerung ist dir besonders wichtig?"];
 }
