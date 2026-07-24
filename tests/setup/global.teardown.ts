@@ -1,5 +1,5 @@
 import type { FullConfig } from '@playwright/test';
 
-export default async function globalTeardown(_config: FullConfig) {
+export default async function globalTeardown() {
   return;
 }

@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { MediaEncryptionService } from '../../../security/media/mediaEncryption';
 import { MediaMetadataService } from '../../../security/media/mediaMetadata';
 
