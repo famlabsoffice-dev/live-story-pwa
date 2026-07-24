@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const CACHE_NAME = "live-story-shell-v1";
 const OFFLINE_URL = "/offline.html";
 
-self.addEventListener("install", (event: unknown) => {
-  const extendableEvent = event as ExtendableEvent;
-  extendableEvent.waitUntil(
+// @ts-ignore
+self.addEventListener("install", (event: any) => {
+  event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.add(OFFLINE_URL))
   );
 });
 
-self.addEventListener("fetch", (event: unknown) => {
-  const fetchEvent = event as FetchEvent;
-  fetchEvent.respondWith(
-    fetch(fetchEvent.request).catch(() => caches.match(OFFLINE_URL) as Promise<Response>)
+// @ts-ignore
+self.addEventListener("fetch", (event: any) => {
+  event.respondWith(
+    fetch(event.request).catch(() => caches.match(OFFLINE_URL))
   );
 });
