@@ -15,9 +15,10 @@ export default defineConfig({
     video: 'retain-on-failure',
   },
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+    { name: 'redmi-note-8-pro', use: { ...devices['Pixel 5'] } },
+    { name: 'ios-safari', use: { ...devices['iPhone 15'] } },
+    { name: 'tablet', use: { ...devices['iPad Pro 11'] } },
+    { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
   ],
   globalSetup: './tests/setup/global.setup.ts',
   globalTeardown: './tests/setup/global.teardown.ts',
