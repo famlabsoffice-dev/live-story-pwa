@@ -1,0 +1,9 @@
+# Projektstatus: live-story-pwa
+
+## Meilenstein: Grundstruktur angelegt
+- Repository geklont
+- Verzeichnisstruktur gemäß Vorgabe erstellt
+- Konfigurationsdateien (Next.js, TS, ESLint, Tailwind, PostCSS) erstellt
+- PWA Manifest und Icons-Ordner vorbereitet
+- GitHub CI Workflow eingerichtet
+- README.md aktualisiert
