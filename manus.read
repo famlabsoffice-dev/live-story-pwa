@@ -10,3 +10,14 @@
 
 ## Meilenstein: GitHub Actions Workflow hinzugefügt
 - CI Workflow (.github/workflows/ci.yml) mit Benutzer-Token erfolgreich gepusht.
+
+## Meilenstein: TypeScript-Fehler im Service Worker behoben
+- [2026-07-24] TypeScript-Fehler in `src/workers/service-worker.ts` analysiert.
+- [2026-07-24] Typdefinitionen für `ExtendableEvent` und `FetchEvent` sowie WebWorker-Lib Referenz hinzugefügt.
+- [2026-07-24] Lokalen Type-Check erfolgreich verifiziert.
+- [2026-07-24] Änderungen committet und erfolgreich gepusht, um den CI-Build zu reparieren.
+
+# AUSGEFÜHRTE SCHRITTE
+- Repository geklont.
+- TypeScript-Fehler in `src/workers/service-worker.ts` durch korrekte Typisierung behoben.
+- Änderungen erfolgreich in das GitHub-Repository gepusht.
