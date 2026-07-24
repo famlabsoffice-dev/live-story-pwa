@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { AppProvider } from "@/providers/app-provider";
 
 export const metadata: Metadata = {
   title: "Live Story | Every Life Matters",
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+        <AppProvider>{children}</AppProvider>
+      </body>
     </html>
   );
 }
