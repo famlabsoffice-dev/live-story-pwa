@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { EnterpriseProvider } from "@/providers/enterprise-provider";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { AppProvider } from "@/providers/app-provider";
 
 export const metadata: Metadata = {
@@ -7,6 +10,13 @@ export const metadata: Metadata = {
   description: "Digital life archive and memory reconstruction platform.",
   applicationName: "Live Story",
   manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -17,7 +27,15 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className="min-h-screen antialiased">
-        <AppProvider>{children}</AppProvider>
+        <ErrorBoundary>
+          <EnterpriseProvider>
+            <AppProvider>
+              <ThemeProvider>
+                {children}
+              </ThemeProvider>
+            </AppProvider>
+          </EnterpriseProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );
