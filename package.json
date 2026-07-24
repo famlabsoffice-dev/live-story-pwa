@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:a11y": "vitest run src/**/*.a11y.test.tsx"
   },
   "dependencies": {
     "next": "15.1.0",
@@ -16,6 +17,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@axe-core/react": "^4.10.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
