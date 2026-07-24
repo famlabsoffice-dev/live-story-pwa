@@ -28,9 +28,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - run: npx playwright install --with-deps
-      - run: pnpm build
-      - run: pnpm test:e2e
+      - name: Static validation
+        run: pnpm validate
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: End-to-end validation
+        run: pnpm test:e2e
 
   lighthouse:
     runs-on: ubuntu-latest
