@@ -1,6 +1,7 @@
 name: Responsive Hardening
 # Production validation trigger
 # Trigger validation run after Lighthouse server startup fix
+# Main branch validation trigger
 permissions:
   contents: read
   pull-requests: write
