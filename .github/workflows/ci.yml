@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -13,10 +13,28 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js
+    
+    - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-    - run: npm install
-    - run: npm run build
-    - run: npm run lint
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Lint
+      run: pnpm lint
+
+    - name: Type check
+      run: pnpm typecheck
+
+    - name: Build
+      run: pnpm build
+      env:
+        LIVE_STORY_EXAMPLE: "ci-build-placeholder"
+        NEXT_PUBLIC_IS_PWA: "true"
