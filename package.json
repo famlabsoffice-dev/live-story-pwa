@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:a11y": "vitest run src/**/*.a11y.test.tsx",
+    "test:a11y:e2e": "playwright test tests/accessibility",
     "test:e2e": "playwright test"
   },
   "dependencies": {
@@ -18,6 +19,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
     "@axe-core/react": "^4.10.2",
     "@playwright/test": "^1.55.0",
     "@types/node": "^20",
