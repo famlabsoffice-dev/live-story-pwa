@@ -1,4 +1,7 @@
 name: Responsive Hardening
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   pull_request:
