@@ -16,7 +16,10 @@ export class MediaRepository {
   }
 
   static async get(id: string): Promise<{ data: ArrayBuffer; metadata: MediaMetadata } | null> {
-    void id;
+    if (!id) {
+      return null;
+    }
+
     return null;
   }
 
