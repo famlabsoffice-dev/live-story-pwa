@@ -15,8 +15,11 @@ export class IndexedDbMediaStore {
         request.result.createObjectStore("media", { keyPath: "id" });
       };
       request.onsuccess = () => {
-        request.result;
-        record.id;
+        const mediaId = record.id;
+        if (!mediaId) {
+          reject(new Error("Media record id is required"));
+          return;
+        }
         resolve();
       };
       request.onerror = () => reject(request.error);
