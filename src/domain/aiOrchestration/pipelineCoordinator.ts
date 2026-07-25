@@ -27,9 +27,10 @@ export class PipelineCoordinator<Input, Output> {
 
   async execute(
     input: Input,
-    _context: PipelineExecutionContext,
+    context: PipelineExecutionContext,
   ): Promise<PipelineResult<Output>> {
     try {
+      void context;
       let current: unknown = input;
 
       for (const stage of this.stages) {
