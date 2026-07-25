@@ -12,7 +12,7 @@ export class PersonalStoryReasoningLayer {
   buildChapterSuggestions(): StoryChapterSuggestion[] {
     const chapters = new Map<string, MemoryNode[]>();
 
-    for (const node of the graph.nodes) {
+    for (const node of this.graph.nodes) {
       const key = this.resolveChapter(node);
 
       const memories = chapters.get(key) ?? [];
