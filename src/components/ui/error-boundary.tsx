@@ -2,21 +2,14 @@
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 
-interface Props {
-  children: ReactNode;
-  fallback?: ReactNode;
-}
-
-interface State {
-  hasError: boolean;
-}
+interface Props { children: ReactNode; fallback?: ReactNode; }
+interface State { hasError: boolean; }
 
 export class ErrorBoundary extends Component<Props, State> {
-  public state: State = {
-    hasError: false
-  };
+  public state: State = { hasError: false };
 
-  public static getDerivedStateFromError(_: Error): State {
+  public static getDerivedStateFromError(error: Error): State {
+    void error;
     return { hasError: true };
   }
 
@@ -29,16 +22,12 @@ export class ErrorBoundary extends Component<Props, State> {
       return this.props.fallback || (
         <div className="p-4 text-center">
           <h2 className="text-xl font-bold">Etwas ist schiefgelaufen.</h2>
-          <button 
-            onClick={() => this.setState({ hasError: false })}
-            className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
-          >
+          <button onClick={() => this.setState({ hasError: false })} className="mt-2 px-4 py-2 bg-blue-500 text-white rounded">
             Erneut versuchen
           </button>
         </div>
       );
     }
-
     return this.children;
   }
 }
