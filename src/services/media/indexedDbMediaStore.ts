@@ -15,7 +15,8 @@ export class IndexedDbMediaStore {
         request.result.createObjectStore("media", { keyPath: "id" });
       };
       request.onsuccess = () => {
-        void record;
+        request.result;
+        record.id;
         resolve();
       };
       request.onerror = () => reject(request.error);
