@@ -12,3 +12,4 @@ export * from "./adaptiveFollowUpEngine";
 export * from "./questionWeighting";
 export * from "./memoryTriggerDetection";
 export * from "./interviewQualityScore";
+export * from "./interviewProductionValidation";
