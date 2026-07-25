@@ -9,7 +9,8 @@ export interface TranscriptionProvider {
 }
 
 export class LocalTranscriptionService implements TranscriptionProvider {
-  async transcribe(_audio: Blob): Promise<TranscriptResult> {
+  async transcribe(audio: Blob): Promise<TranscriptResult> {
+    void audio;
     return {
       text: "",
       language: "de-DE",
