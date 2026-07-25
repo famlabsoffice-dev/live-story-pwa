@@ -15,6 +15,8 @@ export interface MediaStorageAdapter {
   save(record: SecureMediaRecord): Promise<string>;
   get(id: string): Promise<SecureMediaRecord | null>;
   remove(id: string): Promise<void>;
+}
+
 export enum MediaCategory {
   IMAGE = 'IMAGE',
   AUDIO = 'AUDIO',
