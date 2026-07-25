@@ -30,7 +30,10 @@ export class PipelineCoordinator<Input, Output> {
     context: PipelineExecutionContext,
   ): Promise<PipelineResult<Output>> {
     try {
-      void context;
+      if (!context.sessionId || !context.storyId) {
+        throw new Error("Invalid pipeline execution context");
+      }
+
       let current: unknown = input;
 
       for (const stage of this.stages) {
