@@ -1,4 +1,4 @@
-import type { InterviewAnswer, InterviewQuestion } from "./interviewTypes";
+import type { InterviewAnswer } from "./interviewTypes";
 import type { InterviewQuestion as Question } from "./questionTypes";
 
 export interface FollowUpSuggestion {
