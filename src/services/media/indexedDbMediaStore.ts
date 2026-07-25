@@ -14,7 +14,10 @@ export class IndexedDbMediaStore {
       request.onupgradeneeded = () => {
         request.result.createObjectStore("media", { keyPath: "id" });
       };
-      request.onsuccess = () => resolve();
+      request.onsuccess = () => {
+        void record;
+        resolve();
+      };
       request.onerror = () => reject(request.error);
     });
   }
