@@ -4,7 +4,7 @@ const decoder = new TextDecoder();
 export async function createEncryptionKey(password: string): Promise<CryptoKey> {
   const material = await crypto.subtle.importKey(
     'raw',
-    encoder.encode(password),
+    encoder.encode(password) as BufferSource,
     'PBKDF2',
     false,
     ['deriveKey'],
@@ -13,7 +13,7 @@ export async function createEncryptionKey(password: string): Promise<CryptoKey> 
   return crypto.subtle.deriveKey(
     {
       name: 'PBKDF2',
-      salt: encoder.encode('live-story-local'),
+      salt: encoder.encode('live-story-local') as BufferSource,
       iterations: 100000,
       hash: 'SHA-256',
     },
@@ -27,9 +27,9 @@ export async function createEncryptionKey(password: string): Promise<CryptoKey> 
 export async function encryptData(value: string, key: CryptoKey): Promise<ArrayBuffer> {
   const iv = crypto.getRandomValues(new Uint8Array(12));
   const encrypted = await crypto.subtle.encrypt(
-    { name: 'AES-GCM', iv },
+    { name: 'AES-GCM', iv: iv as BufferSource },
     key,
-    encoder.encode(value),
+    encoder.encode(value) as BufferSource,
   );
 
   return encrypted;
