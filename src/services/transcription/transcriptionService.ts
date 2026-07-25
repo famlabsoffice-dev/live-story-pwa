@@ -10,7 +10,10 @@ export interface TranscriptionProvider {
 
 export class LocalTranscriptionService implements TranscriptionProvider {
   async transcribe(audio: Blob): Promise<TranscriptResult> {
-    void audio;
+    if (!audio) {
+      throw new Error("Audio input is required");
+    }
+
     return {
       text: "",
       language: "de-DE",
