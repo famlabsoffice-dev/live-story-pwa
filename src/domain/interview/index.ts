@@ -5,3 +5,6 @@ export * from "./storyReconstruction";
 export * from "./interviewFlowController";
 export * from "./questionSelection";
 export * from "./answerProcessor";
+export * from "./interviewRepository";
+export * from "./inMemoryInterviewRepository";
+export * from "./interviewPersistenceAdapter";
