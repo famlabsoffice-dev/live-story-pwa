@@ -8,3 +8,7 @@ export * from "./answerProcessor";
 export * from "./interviewRepository";
 export * from "./inMemoryInterviewRepository";
 export * from "./interviewPersistenceAdapter";
+export * from "./adaptiveFollowUpEngine";
+export * from "./questionWeighting";
+export * from "./memoryTriggerDetection";
+export * from "./interviewQualityScore";
