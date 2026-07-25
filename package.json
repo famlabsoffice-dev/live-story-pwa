@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:a11y": "vitest run src/**/*.a11y.test.tsx",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "validate": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "dependencies": {
     "next": "15.1.0",
