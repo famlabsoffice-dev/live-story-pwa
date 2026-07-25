@@ -8,6 +8,8 @@ export interface PrivacyConsent {
   purpose: string;
   granted: boolean;
   updatedAt: string;
+}
+
 export interface ProtectedIdentity {
   id: string;
   displayName: string;
